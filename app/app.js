@@ -38,7 +38,10 @@ mApp.filter('phoneNumber', function() {
     input = input.replace(/[-]/g, '');
 
     //get the current format for the number
-    args = listOfCountries[country].format;
+    if(listOfCountries[country] == undefined)
+      args = listOfCountries["Other"].format;
+    else
+      args = listOfCountries[country].format;
     //replace the '_' with the number
     for (i = 0; i < input.length; i++)
     {
